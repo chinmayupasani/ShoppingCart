@@ -1,0 +1,7 @@
+com\niit\shoppingcart\My_CartDAOTestCase.class
+com\niit\shoppingcart\AddressDAOTestCase.class
+com\niit\shoppingcart\ContactDAOTestCase.class
+com\niit\shoppingcart\ProductDAOTestCase.class
+com\niit\shoppingcart\SupplierDAOTestCase.class
+com\niit\shoppingcart\UserDAOTestCase.class
+com\niit\shoppingcart\CategoryDAOTestCase.class
