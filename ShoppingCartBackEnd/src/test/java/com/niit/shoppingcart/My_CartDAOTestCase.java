@@ -7,8 +7,8 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import com.niit.shoppingcart.dao.My_CartDAO;
-import com.niit.shoppingcart.domain.My_Cart;
+import com.niit.shoppingcart.dao.MyCartDAO;
+import com.niit.shoppingcart.domain.MyCart;
 
 public class My_CartDAOTestCase {
 
@@ -16,9 +16,9 @@ public class My_CartDAOTestCase {
 	static AnnotationConfigApplicationContext context;
 
 	@Autowired
-	static My_CartDAO my_CartDAO;
+	static MyCartDAO my_CartDAO;
 	@Autowired
-	static My_Cart my_Cart;
+	static MyCart my_Cart;
 	
 	@BeforeClass
 	public static void initialize()
@@ -28,11 +28,11 @@ public class My_CartDAOTestCase {
 		context.refresh();
 		
 		//get the categoryDAO from context
-		my_CartDAO =  (My_CartDAO) context.getBean("my_CartDAO");
+		my_CartDAO =  (MyCartDAO) context.getBean("my_CartDAO");
 		
 		//get the category from context
 		
-		my_Cart = (My_Cart)context.getBean("my_Cart");
+		my_Cart = (MyCart)context.getBean("my_Cart");
 		
 	}
 	

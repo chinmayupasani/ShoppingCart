@@ -18,7 +18,7 @@ import org.springframework.web.filter.DelegatingFilterProxy;
 import com.niit.shoppingcart.domain.Address;
 import com.niit.shoppingcart.domain.Category;
 import com.niit.shoppingcart.domain.Contact;
-import com.niit.shoppingcart.domain.My_Cart;
+import com.niit.shoppingcart.domain.MyCart;
 import com.niit.shoppingcart.domain.Product;
 import com.niit.shoppingcart.domain.Supplier;
 import com.niit.shoppingcart.domain.User;
@@ -61,7 +61,7 @@ public class ApplicationContextConfig {
 		sessionBuilder.addAnnotatedClass(Supplier.class);
 		sessionBuilder.addAnnotatedClass(Address.class);
 		sessionBuilder.addAnnotatedClass(Product.class);
-		sessionBuilder.addAnnotatedClass(My_Cart.class);
+		sessionBuilder.addAnnotatedClass(MyCart.class);
 		sessionBuilder.addAnnotatedClass(Contact.class);
 		sessionBuilder.scanPackages("com.niit");
 
