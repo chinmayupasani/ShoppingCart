@@ -25,7 +25,7 @@
 </head>
 <body>
 	<jsp:include page="Menu.jsp"></jsp:include>
-	
+	<jsp:include page="Carousel.jsp"></jsp:include>
 	<%-- <jsp:include page="admin/AllProducts.jsp"></jsp:include> --%>
 
 	<c:if test="${isAdmin=='true'}">
@@ -65,6 +65,11 @@
 
 	<c:if test="${isUserClickedRegistration=='true'}">
 		<jsp:include page="Register.jsp"></jsp:include>
+	</c:if>
+	
+	<c:if test="${isUserAtHomePage=='true'}">
+		
+		<jsp:include page="admin/AllProducts.jsp"></jsp:include>
 	</c:if>
 	
 	<c:if test="${displayCart==true}">

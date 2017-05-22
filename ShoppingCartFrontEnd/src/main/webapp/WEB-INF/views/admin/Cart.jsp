@@ -9,7 +9,7 @@
 </head>
 <body>
 
-<c:set var="imageFolder" value="resources/image/" />
+<c:set var="imageFolder" value="resources/images/" />
 	<table>
 		<tr>
 			<th align="left" width="80">Cart ID</th>

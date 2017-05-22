@@ -2,6 +2,8 @@ package com.niit.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,11 +46,13 @@ public class ProductController {
 	@Autowired(required = true)
 	private SupplierDAO supplierDAO;
 
+	@Autowired
+	HttpSession session;
 	//Actually we have to keep this path in a property file
 	//private String path = "D:\\ShoppingCart\\Images";
 	
 	//private String path = "resources/img/";
-  private String path   ="D://Chinmay//SLT1//ShoppingCartFrontEnd//src//main//webapp//resources//images";
+  private String path   ="C://Users//mr2//Documents//Chinmay Changes//New folder//ShoppingCartFrontEnd//src//main//webapp//resources//images ";
 	
 	// get the path where you downloaded tomcat
   //D:\Softwares\Server\apache-tomcat-9.0.0.M6
@@ -117,12 +121,12 @@ public class ProductController {
 		model.addAttribute("categoryList", this.categoryDAO.list());
 		model.addAttribute("category", new Category());
 		
-		return "/adminHome";
+		return "/admin/adminHome";
 		// return "redirect:/uploadFile";
 
 	}
 
-	@RequestMapping("manage_product/remove/{id}")
+	@RequestMapping("manage_product_remove/{id}")
 	public String removeProduct(@PathVariable("id") String id, ModelMap model) throws Exception {
 		log.debug("Starting of the method removeProduct");
 		try {
@@ -136,7 +140,7 @@ public class ProductController {
 		return "forward:/manage_products";
 	}
 
-	@RequestMapping("manage_product/edit/{id}")
+	@RequestMapping("manage_product_edit/{id}")
 	public String editProduct(@PathVariable("id") String id, Model model) {
 		//categoryDAO.saveOrUpdate(category);
 		log.debug(" Starting of the method editProduct");
@@ -158,6 +162,18 @@ public class ProductController {
 
 	}
 
+	@RequestMapping("/viewProduct")
+	public String viewProductHome(Model model) {
+		model.addAttribute("isUserSelectedProduct", "true");
+		return "Home";
+		
+	}
+	
+	@RequestMapping("/viewProduct/{id}")
+	public String viewProduct(@PathVariable("id") String id, Model model) {
+		session.setAttribute("selectedProduct", productDAO.getProductById(id));
+		return "redirect:/viewProduct";
+	}
 	
 
 }

@@ -20,11 +20,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.niit.shoppingcart.dao.CategoryDAO;
-import com.niit.shoppingcart.dao.My_CartDAO;
+import com.niit.shoppingcart.dao.MyCartDAO;
 import com.niit.shoppingcart.dao.ProductDAO;
 import com.niit.shoppingcart.dao.SupplierDAO;
 import com.niit.shoppingcart.domain.Category;
-import com.niit.shoppingcart.domain.My_Cart;
+import com.niit.shoppingcart.domain.MyCart;
 import com.niit.shoppingcart.domain.Product;
 import com.niit.shoppingcart.domain.Supplier;
 
@@ -34,10 +34,10 @@ public class SpringSecurityController {
 	public static Logger log = LoggerFactory.getLogger(SpringSecurityController.class);
 
 	@Autowired
-	private My_CartDAO cartDAO;
+	private MyCartDAO cartDAO;
 
 	@Autowired
-	private My_Cart myCart;
+	private MyCart myCart;
 
 	@Autowired
 	private HttpSession session;
@@ -131,7 +131,7 @@ public class SpringSecurityController {
 			
 			session.setAttribute("myCart", myCart);
 			// Fetch the myCart list based on user ID
-			List<My_Cart> cartList = cartDAO.list(userID);
+			List<MyCart> cartList = cartDAO.list(userID);
 			session.setAttribute("cartList", cartList);
 			session.setAttribute("cartSize", cartList.size());
 			session.setAttribute("totalAmount", cartDAO.getTotalAmount(userID));

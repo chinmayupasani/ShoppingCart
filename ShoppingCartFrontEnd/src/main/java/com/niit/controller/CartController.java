@@ -20,19 +20,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.niit.shoppingcart.dao.My_CartDAO;
+import com.niit.shoppingcart.dao.MyCartDAO;
 import com.niit.shoppingcart.dao.ProductDAO;
-import com.niit.shoppingcart.domain.My_Cart;
+import com.niit.shoppingcart.domain.MyCart;
 import com.niit.shoppingcart.domain.Product;
 
 @Controller
 public class CartController {
 	Logger log = LoggerFactory.getLogger(CartController.class);
 	@Autowired
-	private My_CartDAO cartDAO;
+	private MyCartDAO cartDAO;
 
 	@Autowired
-	private My_Cart myCart;
+	private MyCart myCart;
 
 	@Autowired
 	private ProductDAO productDAO;
@@ -119,7 +119,7 @@ public class CartController {
 		// return "redirect:/views/home.jsp";
 
 		ModelAndView mv = new ModelAndView("redirect:/Home");
-		mv.addObject("successMessage", " Successfuly add the product to myCart");
+		mv.addObject("successMessage", " Successfuly added the product to Cart");
 		log.debug("Ending of the method addToCart");
 		return mv;
 
